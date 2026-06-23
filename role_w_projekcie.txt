@@ -1,0 +1,79 @@
+DOKUMENT OPISU RÓL W PROJEKCIE
+Uczelnia: Akademia WIT pod auspicjami PAN
+Przedmiot: Język Java (Laboratorium)
+Nazwa projektu: Aplikacja okienkowa do obsługi procesu wypożyczania nart
+Struktura projektu: Apache Maven (Java 17, JAR)
+Wersja dokumentu: 1.0
+Data: 23 czerwca 2026 r.
+
+========================================================================
+1. PODSUMOWANIE STRUKTURY ZESPOŁU
+========================================================================
+
+W celu sprawnej realizacji projektu zespół podzielił się na role uwzględniające 
+architekturę backendową (modele, operacje I/O, wielowątkowość), warstwę 
+prezentacji (interfejs SWING z obsługą i18n) oraz zapewnienie jakości 
+(testy jednostkowe JUnit i konfiguracja Maven).
+
+Zestawienie członków zespołu i ich głównych ról:
+* Paweł Kuźnik    - Główny Programista Backend / Architekt Danych
+* Kamil Mazurek   - Inżynier ds. Jakości (QA & Testy) / Programista Logiki
+* Michał Bakalarz - Programista UI (Swing) / Release Manager
+
+========================================================================
+2. SZCZEGÓŁOWY OPIS RÓL I ZADAŃ CZŁONKÓW ZESPOŁU
+========================================================================
+
+------------------------------------------------------------------------
+2.1 Paweł Kuźnik — Główny Programista Backend / Architekt Danych
+------------------------------------------------------------------------
+Rola obejmowała zaprojektowanie struktur danych, klas modeli oraz mechanizmów 
+zapisu i odczytu danych zgodnie z wymaganiami technicznymi.
+
+Główne zadania zrealizowane w projekcie:
+- Zaprojektowanie struktury klas i encji dla ewidencji: Typów Nart, Nart, 
+  Korzystających oraz Wypożyczeń wewnątrz katalogu 'src/main/java'.
+- Implementacja mechanizmu zapisu całej zawartości danych do pliku binarnego 
+  przy użyciu klasy 'DataOutputStream'.
+- Zapewnienie wielowątkowości poprzez osadzenie procesu zapisu danych do pliku 
+  w oddzielnym, asynchronicznym wątku.
+- Implementacja mechanizmu odczytu danych z pliku z wykorzystaniem 'DataInputStream'.
+- Stworzenie wydzielonej klasy konfiguracyjnej do obsługi parametrów globalnych 
+  aplikacji (np. konfiguracja puli wątków).
+
+------------------------------------------------------------------------
+2.2 Kamil Mazurek — Inżynier ds. Jakości (QA & Testy) / Programista Logiki
+------------------------------------------------------------------------
+Rola skupiała się na implementacji logiki biznesowej, algorytmów wyszukiwania, 
+raportowania oraz na pełnym obłożeniu kodu testami jednostkowymi.
+
+Główne zadania zrealizowane w projekcie:
+- Implementacja algorytmów wyszukiwania i filtrowania danych o korzystających 
+  oraz nartach.
+- Przygotowanie funkcji logicznych generujących wymagane raporty:
+  * raport aktualnie dostępnych nart,
+  * raport nart niezwróconych na czas (weryfikacja okien czasowych),
+  * raport nart aktualnie wypożyczonych.
+- Przygotowanie, implementacja i uruchomienie testów jednostkowych w strukturze 
+  'src/test/java' (JUnit 5) sprawdzających kluczowe funkcje programu (m.in. 
+  poprawność przypisywania nart, walidację dat od/do).
+- Dbanie o jakość kodu oraz kontrola obsługi 
+  wyjątków i błędów w aplikacji.
+
+------------------------------------------------------------------------
+2.3 Michał Bakalarz — Programista UI (Swing) / Release Manager
+------------------------------------------------------------------------
+Rola obejmowała stworzenie kompletnego graficznego interfejsu użytkownika, 
+obsługę wielojęzyczności, konfigurację procesu budowania oraz dokumentację.
+
+Główne zadania zrealizowane w projekcie:
+- Zaprojektowanie i zakodowanie okienkowego interfejsu użytkownika przy użyciu 
+  biblioteki JavaFX/Swing (tabele z listami, formularze edycji/usuwania/dodawania).
+- Implementacja mechanizmu dynamicznej zmiany wersji językowej interfejsu wizualnego 
+  (minimum 2 wersje językowe, np. PL/EN) z użyciem klas 'ResourceBundle'.
+- Powiązanie zdarzeń interfejsu (kliknięcia przycisków, odświeżanie tabel) z warstwą 
+  backendową i raportową napisaną przez Pawła i Kamila.
+- Przygotowanie pliku konfiguracyjnego 'pom.xml' dla projektu Maven (zgodność z Java 17, 
+  budowanie do pliku JAR, minimalna liczba zewnętrznych zależności).
+- Wygenerowanie pełnej i poprawnej dokumentacji Javadoc (komentarze do pakietów, klas, 
+  metod i zmiennych składowych) gotowej do prezentacji podczas odbioru.
