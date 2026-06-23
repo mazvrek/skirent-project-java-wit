@@ -1,0 +1,7 @@
+pl.skirent.config
+pl.skirent.i18n
+pl.skirent.io
+pl.skirent.model
+pl.skirent.repository
+pl.skirent.service
+pl.skirent.ui

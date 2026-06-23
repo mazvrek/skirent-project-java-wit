@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pl.skirent.config"},{"l":"pl.skirent.i18n"},{"l":"pl.skirent.io"},{"l":"pl.skirent.model"},{"l":"pl.skirent.repository"},{"l":"pl.skirent.service"},{"l":"pl.skirent.ui"}];updateSearchResults();
